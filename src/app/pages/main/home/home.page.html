@@ -1,0 +1,22 @@
+<app-header [showMenu]="true" title="Inicio :3"></app-header>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" pullFactor="0.8" pullMin="60" pullMax="120">
+    <ion-refresher-content>
+
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Cuadro de resumen de ventas -->
+  <ion-card 
+    mode="ios" 
+    color="secondary" 
+    class="d-flex-center iont-text-center"
+    *ngIf="!loading && products.length">
+  </ion-card>
+  <!-- Cargar formulario modal -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addUpdateProduct()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
